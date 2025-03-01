@@ -30,15 +30,8 @@ namespace DataAccess
             }
         }
         public async Task<string> GetNameById(long id, CancellationToken cancellationToken) 
-        {
-            try
-            {
-                return await _context.TelegramUser.Where(u => u.Id == id).Select(u => u.Name).SingleOrDefaultAsync(cancellationToken) ?? throw new Exception("Не нашел имени, введите /setname {name}");
-            }
-            catch (Exception ex) 
-            {
-                throw;
-            }
+        {  
+                return await _context.TelegramUser.Where(u => u.Id == id).Select(u => u.Name).SingleOrDefaultAsync(cancellationToken);   
         }
         public async Task Update(long id, string name, CancellationToken cancellationToken)
         {

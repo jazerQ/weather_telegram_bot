@@ -10,6 +10,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using Vpn_Telegram;
+using StackExchange.Redis;
 
 internal class Program
 {
@@ -25,10 +26,19 @@ internal class Program
         //    ResizeKeyboard = true 
         //};
         //_toDb = new FromMemoryCacheToDb(_service.CreateDbContext(args));
+
+
+
+       
+
+
+
+
         var scope = _service.CreateScope();
         var botHandler = scope.ServiceProvider.GetRequiredService<BotHandler>();
         using var cts = new CancellationTokenSource();
         bot = await TelegramBotClientFabric.GetTelegramBotClientAsync(cts.Token);
+        botHandler.SetParams(bot, cts.Token);
         var receiverOptions = new ReceiverOptions()
         {
             AllowedUpdates = new[] { UpdateType.Message },

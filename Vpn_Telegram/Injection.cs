@@ -19,6 +19,7 @@ namespace Vpn_Telegram
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddMemoryCache();
+            serviceCollection.AddSingleton<IRedisService, RedisService>();
             serviceCollection.AddDbContext<TelegramDbContext>(options => options.UseNpgsql(appsettingJsonReader.GetConnectionString()));
             serviceCollection.AddScoped<ITelegramUserRepository, TelegramUserRepository>();
             serviceCollection.AddScoped<ITelegramUserService, TelegramUserService>();

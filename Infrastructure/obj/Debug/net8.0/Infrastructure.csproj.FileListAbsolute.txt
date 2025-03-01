@@ -37,3 +37,4 @@ C:\Users\jazer\source\repos\Weather_bot\Infrastructure\obj\Debug\net8.0\refint\I
 C:\Users\jazer\source\repos\Weather_bot\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Users\jazer\source\repos\Weather_bot\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Users\jazer\source\repos\Weather_bot\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\jazer\source\repos\Weather_bot\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

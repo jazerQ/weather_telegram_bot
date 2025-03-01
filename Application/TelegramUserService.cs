@@ -17,14 +17,7 @@ namespace Application
         }
         public async Task<string> GetNameById(long id, CancellationToken cancellationToken)
         {
-            try
-            {
-                return await _userRepository.GetNameById(id, cancellationToken);
-            }
-            catch (Exception ex) 
-            {
-                throw;
-            }
+            return await _userRepository.GetNameById(id, cancellationToken);
         }
         public async Task AddUser(TelegramUser user, CancellationToken cancellationToken) 
         {

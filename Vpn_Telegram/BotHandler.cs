@@ -1,34 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application;
 using Core.Abstractions;
 using Core.Entities;
 using Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Weather_bot.Commands;
+using Weather_bot.Controllers;
 
 namespace Vpn_Telegram
 {
     public class BotHandler
     {
         private readonly ITelegramUserService _serviceUser;
+        private readonly IRedisService _redisService;
         private readonly GetWeatherService _weatherService;
-        public BotHandler(ITelegramUserService serviceUser, GetWeatherService weatherService)
+        private GeneralCommand _generalCommand;
+        public BotHandler(ITelegramUserService serviceUser, GetWeatherService weatherService, IRedisService redisService)
         {
+            _redisService = redisService;
             _weatherService = weatherService;
             _serviceUser = serviceUser;
+            
+        }
+        public void SetParams(ITelegramBotClient bot, CancellationToken cancellationToken) 
+        {
+            _generalCommand = new GeneralCommand(bot, cancellationToken);
         }
         public async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, CancellationToken cancellationToken)
         {
             if (update.Message is not { } message) return;
             if (message.Text is not { } messageText) return;
+            string user = await _serviceUser.GetNameById(message.From.Id, cancellationToken) ?? message.From.FirstName;
             long chatId = message.Chat.Id;
-            switch (message.Text.Split(' ')[0].ToLower())
+            switch (message.Text.ToLower())
             {
                 case "/start":
-                    await bot.SendMessage(chatId, $"Id - {message.From.Id}\nFirstname - {message.From.FirstName}, LastName - {message.From.LastName},Username - {message.From.Username} , Привет я твой телеграмм бот для VPN 🚀!", cancellationToken: cancellationToken);
+                    await _generalCommand.ExecuteStartAsync(chatId, user);
                     break;
                 case "/help":
                     await bot.SendMessage(chatId, $"список команд для бота: /start - запускает бота \n/help - список возможных команд", cancellationToken: cancellationToken);
@@ -75,19 +89,16 @@ namespace Vpn_Telegram
                         $"Облачность: {weather.fact.cloudness}\n", cancellationToken: cancellationToken);
                     Console.WriteLine($"{city}    {city.Length}");
                     break;
-                case "/weather":
-                    await bot.SendMessage(chatId, "пропиши /weather {город} чтобы получить данные", cancellationToken: cancellationToken);
+                case "узнать погоду":
+                    Console.WriteLine("пук");
                     break;
                 case "/setname":
                     await bot.SendMessage(chatId, "укажите команду /setname {имя}", cancellationToken: cancellationToken);
                     break;
-                case "/myname":
+                case "мое имя":
                     try
                     {
-                        var n1 = DateTime.Now;
-                        string user = await _serviceUser.GetNameById(message.From.Id, cancellationToken);
                         await bot.SendMessage(chatId, $"привет {user}", cancellationToken: cancellationToken);
-                        Console.WriteLine(DateTime.Now - n1);
                         break;
                         
                     }catch(Exception ex)
