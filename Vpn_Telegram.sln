@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather_bot", "Vpn_Telegram\Weather_bot.csproj", "{2B9B4620-F331-478D-8D21-AC1C3EE43985}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{453CBA94-3873-4A31-9C4F-2A41E719E44B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		secret.json = secret.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{677676E6-B8D6-4881-9843-F469889C0C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{FF9D2089-525D-4AAE-83EF-5C9034CAAA43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{34FC424D-EEC2-4B3E-8DB1-3EE4266AEEA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{37402B7C-ADF9-4CCA-B9CD-AD955F8A9305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B9B4620-F331-478D-8D21-AC1C3EE43985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9B4620-F331-478D-8D21-AC1C3EE43985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B9B4620-F331-478D-8D21-AC1C3EE43985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B9B4620-F331-478D-8D21-AC1C3EE43985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{677676E6-B8D6-4881-9843-F469889C0C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{677676E6-B8D6-4881-9843-F469889C0C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{677676E6-B8D6-4881-9843-F469889C0C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{677676E6-B8D6-4881-9843-F469889C0C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9D2089-525D-4AAE-83EF-5C9034CAAA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9D2089-525D-4AAE-83EF-5C9034CAAA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9D2089-525D-4AAE-83EF-5C9034CAAA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9D2089-525D-4AAE-83EF-5C9034CAAA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FC424D-EEC2-4B3E-8DB1-3EE4266AEEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FC424D-EEC2-4B3E-8DB1-3EE4266AEEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FC424D-EEC2-4B3E-8DB1-3EE4266AEEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FC424D-EEC2-4B3E-8DB1-3EE4266AEEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37402B7C-ADF9-4CCA-B9CD-AD955F8A9305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37402B7C-ADF9-4CCA-B9CD-AD955F8A9305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37402B7C-ADF9-4CCA-B9CD-AD955F8A9305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37402B7C-ADF9-4CCA-B9CD-AD955F8A9305}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
