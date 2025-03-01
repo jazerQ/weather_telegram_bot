@@ -10,12 +10,11 @@ using Weather_bot.Commands.Keyboard;
 
 namespace Weather_bot.Controllers
 {
-    public class StartCommands : GeneralCommand
+    public static class StartCommands
     {
-        public StartCommands(ITelegramBotClient bot, CancellationToken cancellationToken) : base(bot, cancellationToken) {}
-        public async Task ExecuteAsync(long chatId, string username)
+        public static async Task ExecuteAsync(ITelegramBotClient bot, long chatId, string username, CancellationToken cancellationToken)
         {
-            await _bot.SendMessage(chatId, $"Привет, {username} я твой тг бот для погоды !", replyMarkup: KeyboardService.GetMainKeyboard(), cancellationToken: _cancellationToken);
+            await bot.SendMessage(chatId, $"Привет, {username} я твой тг бот для погоды !", replyMarkup: KeyboardService.GetMainKeyboard(), cancellationToken: cancellationToken);
         }
     }
 }

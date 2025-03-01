@@ -10,6 +10,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using Weather_bot.Actions;
 
 namespace Vpn_Telegram
 {
@@ -20,6 +21,7 @@ namespace Vpn_Telegram
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddMemoryCache();
             serviceCollection.AddSingleton<IRedisService, RedisService>();
+            serviceCollection.AddScoped<ActionByKey>();
             serviceCollection.AddDbContext<TelegramDbContext>(options => options.UseNpgsql(appsettingJsonReader.GetConnectionString()));
             serviceCollection.AddScoped<ITelegramUserRepository, TelegramUserRepository>();
             serviceCollection.AddScoped<ITelegramUserService, TelegramUserService>();

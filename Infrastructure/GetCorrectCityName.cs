@@ -11,17 +11,16 @@ namespace Infrastructure
     {
         public static string Get(string message) 
         {
-            string city = message.Remove(0, "/weather".Length + 1).ToLowerInvariant();
             string cityCorrect = string.Empty;
-            for (int i = 0; i < city.Length; i++)
+            for (int i = 0; i < message.Length; i++)
             {
-                if (i == 0 || (city.IndexOf(' ') != -1 && i == (city.IndexOf(' ') + 1)) || (city.IndexOf('-') != -1 && i == (city.IndexOf('-') + 1)))
+                if (i == 0 || (message.IndexOf(' ') != -1 && i == (message.IndexOf(' ') + 1)) || (message.IndexOf('-') != -1 && i == (message.IndexOf('-') + 1)))
                 {
-                    cityCorrect += city[i].ToString().ToUpper();
+                    cityCorrect += message[i].ToString().ToUpper();
                     continue;
                 }
                 
-                    cityCorrect += city[i];
+                    cityCorrect += message[i];
 
             }
             if (cityCorrect.Contains(" "))

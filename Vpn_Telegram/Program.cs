@@ -19,26 +19,10 @@ internal class Program
     //private static FromMemoryCacheToDb _toDb = service.GetService<FromMemoryCacheToDb>();
     private async static Task Main(string[] args)
     {
-        //var keyboard = new ReplyKeyboardMarkup(new[] {
-        //    new KeyboardButton[] {"/myname" }
-        //})
-        //{
-        //    ResizeKeyboard = true 
-        //};
-        //_toDb = new FromMemoryCacheToDb(_service.CreateDbContext(args));
-
-
-
-       
-
-
-
-
         var scope = _service.CreateScope();
         var botHandler = scope.ServiceProvider.GetRequiredService<BotHandler>();
         using var cts = new CancellationTokenSource();
         bot = await TelegramBotClientFabric.GetTelegramBotClientAsync(cts.Token);
-        botHandler.SetParams(bot, cts.Token);
         var receiverOptions = new ReceiverOptions()
         {
             AllowedUpdates = new[] { UpdateType.Message },
