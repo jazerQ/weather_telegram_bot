@@ -132,3 +132,4 @@ C:\Users\jazer\source\repos\Weather_bot\Vpn_Telegram\bin\Debug\net8.0\Microsoft.
 C:\Users\jazer\source\repos\Weather_bot\Vpn_Telegram\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\jazer\source\repos\Weather_bot\Vpn_Telegram\bin\Debug\net8.0\StackExchange.Redis.dll
 C:\Users\jazer\source\repos\Weather_bot\Vpn_Telegram\obj\Debug\net8.0\Weather_bot.sourcelink.json
+C:\Users\jazer\source\repos\Weather_bot\Vpn_Telegram\bin\Debug\net8.0\AngleSharp.dll

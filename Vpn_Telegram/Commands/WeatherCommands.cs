@@ -40,6 +40,10 @@ namespace Weather_bot.Commands
                 $"Время года: {weather.fact.season}\n" +
             $"Есть ли гроза: {weather.fact.is_thunder}\n" +
                 $"Облачность: {weather.fact.cloudness}\n", replyMarkup: KeyboardService.GetMainKeyboard(), cancellationToken: cancellationToken);
+            await bot.SendPhoto(
+                  chatId: chatId,
+                  photo: InputFile.FromString(weather.fact.imageUrl),
+                  caption: "Вот ваше изображение!", cancellationToken: cancellationToken);
             Console.WriteLine($"{city}    {city.Length}");
         }
     }

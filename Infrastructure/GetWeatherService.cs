@@ -15,11 +15,13 @@ namespace Infrastructure
     public class GetWeatherService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly GetFirstImageFromWiki _imageFromWiki;
         private readonly GetLatLonData _latLonData;
-        public GetWeatherService(IHttpClientFactory httpClientFactory, GetLatLonData latLonData)
+        public GetWeatherService(IHttpClientFactory httpClientFactory, GetLatLonData latLonData, GetFirstImageFromWiki imageFromWiki)
         {
             _httpClientFactory = httpClientFactory;
             _latLonData = latLonData;
+            _imageFromWiki = imageFromWiki;
         }                                 //lat - широта    lon - долгота
         public async Task<WeatherResponse> GetWeather(string city, CancellationToken cancellationToken)
         {
@@ -35,6 +37,7 @@ namespace Infrastructure
                 var weather = JsonConvert.DeserializeObject<WeatherResponse>(content);
                 if (weather != null) 
                 {
+                    weather.fact.imageUrl = await _imageFromWiki.GetFirstImageUrlFromWiki($"https://ru.wikipedia.org/wiki/{city}"); 
                     return weather;
                 }
                 throw new WeatherIsNullException("не удалось найти погоду");

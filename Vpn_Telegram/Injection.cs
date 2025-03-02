@@ -28,6 +28,7 @@ namespace Vpn_Telegram
             serviceCollection.AddScoped<BotHandler>();
             serviceCollection.AddHttpClient();
             serviceCollection.AddScoped<GetWeatherService>();
+            serviceCollection.AddScoped<GetFirstImageFromWiki>();
             serviceCollection.AddScoped<GetLatLonData>();
             var serviceProvider = serviceCollection.BuildServiceProvider();
             return serviceProvider;

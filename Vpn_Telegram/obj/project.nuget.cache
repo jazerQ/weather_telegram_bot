@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gujBPdUeH1g=",
+  "dgSpecHash": "vTkYz7fMOCU=",
   "success": true,
   "projectFilePath": "C:\\Users\\jazer\\source\\repos\\Weather_bot\\Vpn_Telegram\\Weather_bot.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jazer\\.nuget\\packages\\anglesharp\\1.2.0\\anglesharp.1.2.0.nupkg.sha512",
     "C:\\Users\\jazer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\jazer\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
     "C:\\Users\\jazer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

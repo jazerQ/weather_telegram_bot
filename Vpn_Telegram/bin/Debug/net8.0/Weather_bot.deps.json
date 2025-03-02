@@ -24,6 +24,14 @@
           "Weather_bot.dll": {}
         }
       },
+      "AngleSharp/1.2.0": {
+        "runtime": {
+          "lib/net8.0/AngleSharp.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -803,6 +811,7 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "AngleSharp": "1.2.0",
           "DataAccess": "1.0.0",
           "Microsoft.AspNet.WebApi.Client": "6.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.2",
@@ -827,6 +836,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AngleSharp/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uF/PzSCVcb+b2nqVvHZbOqexoJ9R6QLjonugPf0PQl+0h7YKaFZeXyspctbHe5HGlx7/Iuk5BErtk+t63ac/ZA==",
+      "path": "anglesharp/1.2.0",
+      "hashPath": "anglesharp.1.2.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
