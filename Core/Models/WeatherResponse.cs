@@ -28,6 +28,6 @@ namespace Core.Models
         public string temp_water { get; set; } = string.Empty;
         public string wind_dir { get; set; } = string.Empty;
         public float wind_speed { get; set; }
-        public string imageUrl { get; set; } = string.Empty;
+        public List<string>? imageUrl { get; set; } 
     } 
 }

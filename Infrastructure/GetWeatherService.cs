@@ -37,7 +37,8 @@ namespace Infrastructure
                 var weather = JsonConvert.DeserializeObject<WeatherResponse>(content);
                 if (weather != null) 
                 {
-                    weather.fact.imageUrl = await _imageFromWiki.GetFirstImageUrlFromWiki($"https://ru.wikipedia.org/wiki/{city}"); 
+                    weather.fact.imageUrl = await _imageFromWiki.GetFirstImageUrlFromWiki($"https://ru.wikipedia.org/wiki/{city}");
+                    
                     return weather;
                 }
                 throw new WeatherIsNullException("не удалось найти погоду");

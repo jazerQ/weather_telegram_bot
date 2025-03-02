@@ -10,30 +10,34 @@ namespace Infrastructure
 {
     public class GetFirstImageFromWiki
     {
-        public async Task<string> GetFirstImageUrlFromWiki(string url)
+        public async Task<List<string>> GetFirstImageUrlFromWiki(string url)
         {
             var httpClient = new HttpClient();
             var html = await httpClient.GetStringAsync(url);
-
+            var photos = new List<string>();
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(html));
 
-            var imageElement = document.QuerySelector("img"); // Берем первую картинку
+            var imageElements = document.QuerySelectorAll("img"); // Берем первую картинку
+            if (imageElements != null) {
+                foreach (var image in imageElements)
+                    if (image != null)
+                    {
+                        
+                        string? src = image.GetAttribute("src");
 
-            if (imageElement != null)
-            {
-                string src = imageElement.GetAttribute("src");
+                        if (src == null) continue;
+                        // Добавляем "https:" к относительным ссылкам
+                        if (!src.StartsWith("http"))
+                        {
+                            src = "https:" + src;
+                        }
 
-                // Добавляем "https:" к относительным ссылкам
-                if (!src.StartsWith("http"))
-                {
-                    src = "https:" + src;
-                }
-
-                return src;
+                        photos.Add(src);
+                        if (photos.Count == 3) break;
+                    }
             }
-
-            return "Картинка не найдена";
+            return photos;
         }
     }
 }
