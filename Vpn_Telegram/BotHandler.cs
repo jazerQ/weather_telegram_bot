@@ -62,6 +62,9 @@ namespace Vpn_Telegram
                 case "мое имя":
                     await NameCommands.GetMyName(bot, chatId, user, cancellationToken);
                     break;
+                case "о проекте":
+                    await AboutUsCommands.GetInfo(bot, chatId, user, cancellationToken);
+                    break;
                     
                 default:
                     await bot.SendMessage(chatId, $"я не понимаю такой команды", replyMarkup: KeyboardService.GetMainKeyboard(), cancellationToken: cancellationToken);
